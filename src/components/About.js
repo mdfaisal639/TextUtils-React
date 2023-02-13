@@ -1,32 +1,39 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
-export default function About() {
-    const [myStyle,setStyle]=useState({
-        color:'black',
-        backgroundColor:'white',
-        // border:'1px solid white'
-    })
-    const [btnText,setBtnText]=useState('Enable dark mode')
-    const toggleStyle=() =>{
-        if(myStyle.color === 'black'){
-            setStyle({
-                color:'white',
-                backgroundColor:'black',
-                border:'1px solid white'
-            })
-            setBtnText('Enable light Mode')
-        }
-        else{
-            setStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setBtnText('Enable dark Mode')
-        }
+export default function About(props) {
+    let myStyle={
+        color:props.mode==='dark'?'white':'black',
+        backgroundColor:props.mode==='dark'?'#79abab':'white',
+        
+
     }
+
+    // const [myStyle,setStyle]=useState({
+    //     color:'black',
+    //     backgroundColor:'white',
+    //     // border:'1px solid white'
+    // })
+    // const [btnText,setBtnText]=useState('Enable dark mode')
+    // const toggleStyle=() =>{
+    //     if(myStyle.color === 'black'){
+    //         setStyle({
+    //             color:'white',
+    //             backgroundColor:'black',
+    //             border:'1px solid white'
+    //         })
+    //         setBtnText('Enable light Mode')
+    //     }
+    //     else{
+    //         setStyle({
+    //             color:'black',
+    //             backgroundColor:'white'
+    //         })
+    //         setBtnText('Enable dark Mode')
+    //     }
+    // }
   return (
-    <div className='container my-3' style={myStyle}>
+    <div className='container my-4' style={myStyle}>
         <h2>About Us</h2>
             <div className="accordion accordion-flush" id="accordionFlushExample">
             <div className="accordion-item" style={myStyle} >
@@ -59,11 +66,11 @@ export default function About() {
         <div className="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
         </div>
         </div>
-            </div>
-        <div className="container">
+        </div>
+        {/* <div className="container">
             <button type="button" class="btn btn-primary my-3" onClick={toggleStyle} >{btnText}</button>
             </div>    
-      
+       */}
 </div>
   )
 }
